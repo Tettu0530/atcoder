@@ -8,3 +8,13 @@ wheels/
 
 # Virtual environments
 .venv
+
+# C++ build artifacts
+*.o
+*.out
+*.exe
+a.out
+*.dSYM/
+# Compiled binary from main.cpp (extensionless executable)
+/main
+
