@@ -5,15 +5,17 @@
       // 開いている .cpp をデバッグ用にビルド（拡張子なしの実行ファイルを同じフォルダに生成）
       "label": "C++ build (debug)",
       "type": "shell",
-      "command": "g++-15",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
       "args": [
         "-std=gnu++23",
         "-g",
         "-O0",
         "-Wall",
         "-Wextra",
-        "-fsanitize=address,undefined",
         "-D_GLIBCXX_DEBUG",
+        "-fsanitize=undefined",
+        "-fsanitize-trap=undefined",
+        "-static",
         "${file}",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}"
@@ -23,7 +25,7 @@
         "isDefault": true
       },
       "problemMatcher": ["$gcc"],
-      "detail": "g++-15 でデバッグビルド（ASan/UBSan + glibcxx debug 付き）"
+      "detail": "ucrt64 g++(16.1) でデバッグビルド（glibcxx debug + UBSan トラップ + static / ASan は MinGW 非対応のため除外）"
     }
   ]
 }

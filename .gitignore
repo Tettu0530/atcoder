@@ -18,3 +18,4 @@ a.out
 # Compiled binary from main.cpp (extensionless executable)
 /main
 
+/tmp
