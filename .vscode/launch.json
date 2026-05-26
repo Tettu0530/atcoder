@@ -1,0 +1,29 @@
+{
+  // Cursor では Microsoft C/C++ 拡張が使えないため、CodeLLDB (vadimcn.vscode-lldb) を使用します。
+  // 事前に拡張機能 "CodeLLDB" をインストールしてください。
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // ターミナルから標準入力を手入力してデバッグ
+      "name": "C++ debug (input from terminal)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "preLaunchTask": "C++ build (debug)",
+      "terminal": "integrated"
+    },
+    {
+      // 同じフォルダの input.txt を標準入力として流し込んでデバッグ
+      "name": "C++ debug (input from input.txt)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "preLaunchTask": "C++ build (debug)",
+      "stdio": ["${fileDirname}/input.txt", null, null]
+    }
+  ]
+}

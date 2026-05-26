@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // 開いている .cpp をデバッグ用にビルド（拡張子なしの実行ファイルを同じフォルダに生成）
+      "label": "C++ build (debug)",
+      "type": "shell",
+      "command": "g++-15",
+      "args": [
+        "-std=gnu++23",
+        "-g",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-fsanitize=address,undefined",
+        "-D_GLIBCXX_DEBUG",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "g++-15 でデバッグビルド（ASan/UBSan + glibcxx debug 付き）"
+    }
+  ]
+}
