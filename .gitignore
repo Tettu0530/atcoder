@@ -9,6 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+# Scratch working file for the current problem (kept local, not committed)
+/main.py
+
 # C++ build artifacts
 *.o
 *.out
